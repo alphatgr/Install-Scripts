@@ -19,6 +19,12 @@ sudo apt install -y build-essential software-properties-common \
 echo "🐍 Installing Python3 and pip..."
 sudo apt install -y python3 python3-pip python3-venv
 
+# Remove Older Node.js packages to avoid conflicts
+echo "🧼 Removing older Node.js and conflicting dev packages..."
+sudo apt remove -y nodejs libnode-dev
+sudo apt autoremove -y
+sudo apt clean
+
 # Install Node.js (LTS) and npm
 echo "🟢 Installing Node.js LTS and npm..."
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
@@ -88,4 +94,3 @@ sudo apt autoremove -y
 sudo apt clean
 
 echo "✅ Web development environment setup is complete!"
-
